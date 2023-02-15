@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pbq.vote.dao.StringResourceMapper">
+  <resultMap id="stringResourceMap" type="com.pbq.vote.po.StringResourcePo">
+    <id property="strId" column="str_id" />
+    <result property="strType" column="str_type" />
+    <result property="messageCn" column="message_cn" />
+    <result property="messageTw" column="message_tw" />
+    <result property="messageEn" column="message_en" />
+  </resultMap>
+  <select id="getStringResourceByStrId" parameterType="java.lang.String"  resultType="com.pbq.vote.po.StringResourcePo">
+    SELECT t.str_id AS strId, t.str_type AS strType, t.message_cn AS messageCn,
+    t.message_tw AS messageTw, t.message_en AS messageEn
+    from t_string_resource t where t.str_id = #{strId};
+  </select>
+</mapper>

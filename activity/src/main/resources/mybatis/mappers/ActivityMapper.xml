@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pbq.vote.dao.ActivityMapper">
+  <resultMap id="activityMap" type="com.pbq.vote.po.ActivityPo">
+    <id property="activityId" column="activity_id" />
+    <result property="activityName" column="activity_name" />
+    <result property="activityStart" column="activity_start" />
+    <result property="activityEnd" column="activity_end" />
+    <result property="imgUrl" column="img_url" />
+    <result property="ownerId" column="owner_id" />
+    <result property="activityDesc" column="activity_desc" />
+    <result property="insertTime" column="insert_time" />
+    <result property="updateTime" column="update_time" />
+  </resultMap>
+  <select id="getActivityName" resultType="java.lang.String">
+    select activity_name
+    from t_activity
+    where activity_id = 1
+  </select>
+  <select id="getAllActivity"  resultMap="activityMap">
+    select *
+    from t_activity
+  </select>
+</mapper>
